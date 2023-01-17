@@ -6,16 +6,8 @@ namespace SimpleAPI.Controllers;
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
-
-    private readonly ILogger<WeatherForecastController> _logger;
-
     public WeatherForecastController()
     {
-    }
-
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
-    {
-        _logger = logger;
     }
 
     [HttpGet(Name = "GetWeatherForecast")]
@@ -27,7 +19,7 @@ public class WeatherForecastController : ControllerBase
     [HttpGet("{id}")]
     public ActionResult<string> Get(int id) 
     {
-        return "masum";
+        return "Masum";
     }
 
 
