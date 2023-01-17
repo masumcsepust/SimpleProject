@@ -13,7 +13,7 @@ public class WeatherForecastController : ControllerBase
     [HttpGet(Name = "GetWeatherForecast")]
     public ActionResult<IEnumerable<string>> Get()
     {
-        return new string[] {"Masum","Publish"};
+        return new string[] {"value1","value"};
     }
 
     [HttpGet("{id}")]
