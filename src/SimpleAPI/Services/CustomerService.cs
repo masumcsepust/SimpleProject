@@ -24,7 +24,7 @@ using SimpleAPI.Services;
             var model = new Customer();
             model.Id = customer.Id;
             model.Address = customer.Address;
-            model.Emaily = customer.Emaily;
+            model.Email = customer.Email;
             model.Name = customer.Name;
 
             return model;
@@ -39,7 +39,7 @@ using SimpleAPI.Services;
                                         Id = c.Id,
                                         Name = c.Name,
                                         Address = c.Address,
-                                        Emaily = c.Emaily
+                                        Email = c.Email
                                      })
                                      .ToListAsync();
         }
@@ -57,7 +57,7 @@ using SimpleAPI.Services;
             }
 
             customer.Address = model.Address;
-            customer.Emaily = model.Emaily;
+            customer.Email = model.Email;
             customer.Name = model.Name;
 
             await _dataContext.SaveChangesAsync();

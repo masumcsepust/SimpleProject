@@ -11,8 +11,8 @@ using SimpleAPI.Data;
 namespace SimpleAPI.Migrations
 {
     [DbContext(typeof(DemoDbContext))]
-    [Migration("20230117171158_MyFirstMigration")]
-    partial class MyFirstMigration
+    [Migration("20230118151309_second")]
+    partial class second
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,7 +34,7 @@ namespace SimpleAPI.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Emaily")
+                    b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")

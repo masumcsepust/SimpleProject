@@ -16,9 +16,9 @@ namespace SimpleAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetCustomers()
+        public async Task<IActionResult> GetCustomers()
         {
-            var customers = new Customer() {Id=1, Name="masum", Address="sfasf", Emaily="sdfasf@gmail.com"}; //_customerService.List();
+            var customers = await _customerService.List();
 
             return Ok(customers);
         }
