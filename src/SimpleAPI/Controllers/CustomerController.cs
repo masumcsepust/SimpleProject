@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using SimpleAPI.Models;
 using SimpleAPI.Services;
 
 namespace SimpleAPI.Controllers
@@ -15,9 +16,9 @@ namespace SimpleAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public IActionResult GetCustomers()
         {
-            var customers = await _customerService.List();
+            var customers = new Customer() {Id=1, Name="masum", Address="sfasf", Emaily="sdfasf@gmail.com"}; //_customerService.List();
 
             return Ok(customers);
         }
