@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using SimpleAPI.Services;
 
 namespace SimpleAPI.Controllers;
 
@@ -6,14 +7,18 @@ namespace SimpleAPI.Controllers;
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
-    public WeatherForecastController()
+    private readonly ICustomerService _customerService;
+    public WeatherForecastController(ICustomerService cus)
     {
+        _customerService=cus;
     }
 
     [HttpGet(Name = "GetWeatherForecast")]
-    public ActionResult<IEnumerable<string>> Get()
+    public async Task<IActionResult> Get()
     {
-        return new string[] {"value1","value"};
+        var customers = await _customerService.List();
+
+            return Ok(customers);
     }
 
     [HttpGet("{id}")]
