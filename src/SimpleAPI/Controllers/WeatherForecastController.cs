@@ -10,28 +10,14 @@ namespace SimpleAPI.Controllers;
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
-    //private readonly ICustomerService _customerService;
-    private readonly DemoDbContext _dataContext;
-    public WeatherForecastController(DemoDbContext cus)
+    public WeatherForecastController()
     {
-        _dataContext=cus;
     }
 
     [HttpGet(Name = "GetWeatherForecast")]
-    public async Task<IActionResult> Get()
+    public  ActionResult<string> Get()
     {
-        var customers = await _dataContext.customers
-                                     .OrderBy(c => c.Name)
-                                     .Select(c => new Customer
-                                     { 
-                                        Id = c.Id,
-                                        Name = c.Name,
-                                        Address = c.Address,
-                                        Email = c.Email
-                                     })
-                                     .ToListAsync();
-
-            return Ok(customers);
+        return "Something new";
     }
 
     [HttpGet("{id}")]
